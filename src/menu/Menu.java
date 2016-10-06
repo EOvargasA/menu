@@ -17,13 +17,17 @@ public class Menu {
     public static void main(String[] args) {
         //asignacion de valores
         int opcion;
+        int a;
         double area;
         String forma;        
         //llamado de procesos
+        do{
         opcion = menu();
         area = areas(opcion);
         forma = forma(opcion);
         mostrar(area,forma);
+        a = continuar();
+        }while (a < 0 || a > 0);
     }
     public static int menu (){
         int opcion;
@@ -124,5 +128,16 @@ public class Menu {
     public static void mostrar(double area,String forma){
         //desplegando el resultado
         System.out.println("El area del "+forma+" es "+area);
+    }
+    public static int continuar(){
+        int a;
+        Scanner teclado = new Scanner (System.in);
+        do{
+        System.out.println("Desea calcular el area de otra figura");
+        System.out.println("1. Si");
+        System.out.println("0. No");
+        a = teclado.nextInt();
+        }while (a < 0 || a > 1);
+        return a;
     }
 }
